@@ -40,6 +40,19 @@ class Spill():
         else:
             for rute in range(3):
                 self.brett[y+rute][x] = 'x'
+    
+    def shoot(self, x, y):
+        """
+        hit
+        """
+       
+        if self.brett[y][x] == 'x':
+                    print("hit")
+        
+        else:
+            print("missed")
+
+
 
     def print_brett(self):
         """
@@ -51,11 +64,7 @@ class Spill():
 
 nyttspill = Spill()
 nyttspill.print_brett()
-nyttspill.place_ship(1, 1, 1)
+nyttspill.place_ship(0, 1, 0)
 nyttspill.print_brett()
-nyttspill.place_ship(2, 2, 2)
+nyttspill.shoot(0, 0)
 nyttspill.print_brett()
-
-
-
-
