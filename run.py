@@ -1,18 +1,18 @@
 class Spill():
     """
-    Game
+    Game submarine
     """
+
     def __init__(self) -> None:
         self.brett = []
-        self.pcbrett = []
 
         for row in range(5):
             rad = []
             for kolonne in range(5):
                 rad.append('')
-                self.brett.append(rad)
+            self.brett.append(rad)
 
-    def sjekk_kollisjon(self,x,y, retning):
+    def sjekk_kollisjon(self, x, y, retning):
         """
         Checking collision
         """
@@ -20,15 +20,27 @@ class Spill():
             if x > 3:
                 print("out of board")
             for rute in range(3):
-                if self.brett[y][x + rute] == "x":
+                if self.brett[y][x + rute] == 'x':
                     print("rute opptatt")
         else:
             if y > 3:
                 print("out of board")
             for rute in range(3):
-                if self.brett[y+rute][x] == "x":
+                if self.brett[y+rute][x] == 'x':
                     print("rute opptatt")
-    
+
+    def place_ship(self, x, y, retning):
+        """
+        placing the ships
+        """
+        self.sjekk_kollisjon(x, y, retning)
+        if retning:
+            for rute in range(3):
+                self.brett[y][x+rute] = 'x'
+        else:
+            for rute in range(3):
+                self.brett[y+rute][x] = 'x'
+
     def print_brett(self):
         """
         printing the game
@@ -39,6 +51,11 @@ class Spill():
 
 nyttspill = Spill()
 nyttspill.print_brett()
+nyttspill.place_ship(1, 1, 1)
+nyttspill.print_brett()
+nyttspill.place_ship(2, 2, 2)
+nyttspill.print_brett()
+
 
 
 
