@@ -12,7 +12,7 @@ class Spill():
                 rad.append('')
                 self.brett.append(rad)
 
-    def sjekk_kolisjon(self, x, y, retning):
+    def sjekk_kollisjon(self,x,y, retning):
         """
         Checking collision
         """
@@ -21,6 +21,12 @@ class Spill():
                 print("out of board")
             for rute in range(3):
                 if self.brett[y][x + rute] == "x":
+                    print("rute opptatt")
+        else:
+            if y > 3:
+                print("out of board")
+            for rute in range(3):
+                if self.brett[y+rute][x] == "x":
                     print("rute opptatt")
     
     def print_brett(self):
