@@ -1,3 +1,38 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+class Spill():
+    """
+    Game
+    """
+    def __init__(self) -> None:
+        self.brett = []
+        self.pcbrett = []
+
+        for row in range(5):
+            rad = []
+            for kolonne in range(5):
+                rad.append('')
+                self.brett.append(rad)
+
+    def sjekk_kolisjon(self, x, y, retning):
+        """
+        Checking collision
+        """
+        if retning:
+            if x > 3:
+                print("out of board")
+            for rute in range(3):
+                if self.brett[y][x + rute] == "x":
+                    print("rute opptatt")
+    
+    def print_brett(self):
+        """
+        printing the game
+        """
+        for rad in self.brett:
+            print(rad)
+
+
+nyttspill = Spill()
+nyttspill.print_brett()
+
+
+
